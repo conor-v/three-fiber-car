@@ -1,9 +1,11 @@
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
 import './App.css';
-import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
+import { CubeCamera, Environment, OrbitControls, PerspectiveCamera } from '@react-three/drei';
 import {Ground} from './Ground';
 import { Car } from './Car';
+import { Rings } from './Rings';
+import Loader from './Loader'
 
 const CarShow = () => {
   return (
@@ -34,15 +36,24 @@ const CarShow = () => {
         shadow-bias={-0.0001}
       />
 
+      <CubeCamera resolution={256} frames={Infinity}>
+        {(texture) => (
+          <>
+            <Environment map={texture} />
+            <Car/>
+          </>
+        )}
+      </CubeCamera>
+
+      <Rings/>
       <Ground/>
-      <Car/>
     </>
   )
 }
 
 function App() {
   return (
-   <Suspense fallback={null}>
+   <Suspense fallback={<Loader/>}>
     <Canvas shadows>
       <CarShow/>
     
