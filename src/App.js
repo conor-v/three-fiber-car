@@ -4,6 +4,7 @@ import './App.css';
 import { CubeCamera, Environment, OrbitControls, PerspectiveCamera } from '@react-three/drei';
 import {Ground} from './Ground';
 import { Car } from './Car';
+import Car2 from './Car2';
 import { Rings } from './Rings';
 import FloatingGrid from './FloatingGrid';
 import { Boxes } from './Boxes';
@@ -44,7 +45,7 @@ const CarShow = () => {
         {(texture) => (
           <>
             <Environment map={texture} />
-            <Car/>
+            <Car2/>
           </>
         )}
       </CubeCamera>
