@@ -9,8 +9,6 @@ const Car2 = (props) => {
   const wiel3 = useRef()
   const wiel4 = useRef()
 
-  console.log( wiel1.current.rotation.y + .001);
-
   useFrame((state) => {
     wiel1.current.rotation.y += 0.05
     wiel2.current.rotation.y += 0.05
